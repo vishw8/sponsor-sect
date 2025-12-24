@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "@fontsource/silkscreen";
+@import "@fontsource/press-start-2p";
+
+@theme {
+  --font-pixel: "Press Start 2P", cursive;
+  --font-body: "Silkscreen", cursive;
+  /* Using Silkscreen for body as requested */
+
+  --color-mc-grass: #4CAF50;
+  --color-mc-dirt: #8D6E63;
+  --color-mc-stone: #1F1F1F;
+  --color-mc-diamond: #4EE6D6;
+  --color-mc-night: #0B0E1A;
+  --color-mc-bg: #050505;
+
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer base {
+  html {
+    background-color: var(--color-mc-night);
+    color: #fff;
+    cursor: none;
+  }
+
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+}
+
+::selection {
+  background: var(--color-mc-diamond);
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-mc-stone);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-mc-grass);
+  border: 2px solid var(--color-mc-stone);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-mc-diamond);
+}
+
+.pixel-corners {
+  clip-path: polygon(0px 4px,
+      4px 4px,
+      4px 0px,
+      calc(100% - 4px) 0px,
+      calc(100% - 4px) 4px,
+      100% 4px,
+      100% calc(100% - 4px),
+      calc(100% - 4px) calc(100% - 4px),
+      calc(100% - 4px) 100%,
+      4px 100%,
+      4px calc(100% - 4px),
+      0px calc(100% - 4px));
+}
+
+.mc-text-shadow {
+  text-shadow: 2px 2px 0px #000000;
+}
