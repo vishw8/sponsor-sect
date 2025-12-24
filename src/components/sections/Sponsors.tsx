@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { BgParticles } from "../ui/BgParticles";
+import traderImg from "../assets/trader.png";
+
 
 const SPONSORS = [
     { name: "Tech Corp", tier: "Diamond", color: "bg-cyan-200" },
@@ -18,7 +20,24 @@ export const Sponsors = () => {
                 <h2 className="font-pixel text-4xl text-center text-white mb-4">VILLAGE MARKET</h2>
                 <p className="text-center text-white/60 mb-16 font-body">Trade with our generous sponsors.</p>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="flex flex-col lg:flex-row items-end gap-12">
+
+  {/* Trader */}
+  <div className="hidden lg:flex justify-center w-1/3">
+    <motion.img
+      src={traderImg}
+      alt="Village Trader"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="w-56 image-rendering-pixelated"
+    />
+  </div>
+
+  {/* Sponsor Stalls */}
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
+
                     {SPONSORS.map((sponsor, index) => (
                         <motion.div
                             key={index}
@@ -47,7 +66,9 @@ export const Sponsors = () => {
                             </div>
                         </motion.div>
                     ))}
-                </div>
+        </div>  {/* end sponsor stalls */}
+</div>    {/* end flex container */}
+
             </div>
         </section>
     );
