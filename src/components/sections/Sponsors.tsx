@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { BgParticles } from "../ui/BgParticles";
-import traderImg from "../assets/trader.png";
+import traderImg from "../../assets/trader.png";
 
 
 const SPONSORS = [
